@@ -21,5 +21,13 @@
   "devDependencies": {
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Douglas10Holanda/projetoES.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Douglas10Holanda/projetoES/issues"
+  },
+  "homepage": "https://github.com/Douglas10Holanda/projetoES#readme"
 }
