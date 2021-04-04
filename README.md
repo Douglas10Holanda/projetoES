@@ -2,7 +2,7 @@
 Projeto de um sistema de estoque.	
 
 # Entre na pasta frontend
-$ cd Sistema de Estoque
+$ cd projetoES-main
 
 # Instale as dependências
 $ npm init
