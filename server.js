@@ -38,6 +38,16 @@ app.get('/', checkAuthenticated, (req, res) => {
     res.render('index.ejs', { name: req.user.name })
 })
 
+// ROTA CADASTRAR NOVO PRODUTO
+app.get('/cadastrarProd', (req, res) => {
+    res.render('cadastrarProd.ejs')
+})
+
+// ROTA EDITAR PRODUTO
+app.get('/editarProd', (req, res) => {
+    res.render('editarProd.ejs')
+})
+
 // ROTA LOGIN
 app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs')

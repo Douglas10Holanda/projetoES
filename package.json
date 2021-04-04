@@ -1,7 +1,7 @@
 {
   "name": "sistema-de-estoque",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projeto de um sistema de estoque.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js"

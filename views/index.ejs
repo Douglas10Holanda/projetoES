@@ -1,4 +1,27 @@
-<h1>Olá <%= name %></h1>
+<h1>Olá <%= name %>, seja bem-vindo!</h1>
+
+<form action="/cadastrarProd" method="POST">
+    <button type="submit">Cadastrar Produto</button>
+</form>
+
+<div>
+    <input type="text" id="txtBusca" placeholder="Buscar produto...">
+    <br><br>
+    <thead>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Quantidade</th>
+                <th>Valor</th>
+            </tr>
+        </table>
+    </thead>
+    <tbody id="tbody"></tbody>
+</div>
+
+<br><br>
 <form action="/logout?_method=DELETE" method="POST">
     <button type="submit">Sair</button>
 </form>
