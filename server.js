@@ -38,16 +38,6 @@ app.get('/', checkAuthenticated, (req, res) => {
     res.render('index.ejs', { name: req.user.name })
 })
 
-// ROTA CADASTRAR NOVO PRODUTO
-app.get('/cadastrarProd', (req, res) => {
-    res.render('cadastrarProd.ejs')
-})
-
-// ROTA EDITAR PRODUTO
-app.get('/editarProd', (req, res) => {
-    res.render('editarProd.ejs')
-})
-
 // ROTA LOGIN
 app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs')
@@ -80,9 +70,25 @@ app.post('/registro', checkNotAuthenticated, async (req, res) => {
     console.log(usuarios)
 })
 
+// ROTA CADASTRAR NOVO PRODUTO
+app.get('/cadastrarProd', (req, res) => {
+    res.render('cadastrarProd.ejs')
+})
+
+// ROTA EDITAR PRODUTO
+app.get('/editarProd', (req, res) => {
+    res.render('editarProd.ejs')
+})
+
+// LogOut
 app.delete('/logout', (req, res) =>{
     req.logOut()
     res.redirect('/login')
+})
+
+// Voltar pra index
+app.delete('/voltar', (req, res) =>{
+    res.redirect('/')
 })
 
 function checkAuthenticated(req, res, next) {
