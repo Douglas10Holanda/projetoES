@@ -18,8 +18,10 @@ initializePassport(
 )
 
 // Armazenando Usuários em array
-// Devemos conectar ao banco de dados
+// Armazenado produtos em array
 const usuarios = []
+const produtos = []
+// Devemos conectar ao banco de dados
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
@@ -73,6 +75,21 @@ app.post('/registro', checkNotAuthenticated, async (req, res) => {
 // ROTA CADASTRAR NOVO PRODUTO
 app.get('/cadastrarProd', (req, res) => {
     res.render('cadastrarProd.ejs')
+})
+
+app.post('/cadastrarProd', async (req, res) => {
+    try {
+        produtos.push({
+            name: req.body.name,
+            marca: req.body.marca,
+            quantidade: req.body.quantidade,
+            valor: req.body.valor
+        })
+        res.redirect('/')
+    } catch (error) {
+        res.redirect('/cadastrarProd')        
+    }
+    console.log(produtos)
 })
 
 // ROTA EDITAR PRODUTO
