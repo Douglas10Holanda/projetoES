@@ -97,6 +97,31 @@ app.get('/editarProd', (req, res) => {
     res.render('editarProd.ejs')
 })
 
+app.post('/editarProd', async (req, res) => {
+    try {
+        produtos.push({
+            name: req.body.name,
+            marca: req.body.marca,
+            quantidade: req.body.quantidade,
+            valor: req.body.valor
+        })
+        res.redirect('/')
+    } catch (error) {
+        res.redirect('/editarProd')        
+    }
+    console.log(produtos)
+})
+
+// ROTA DELETAR PRODUTO
+app.get('/deletarProd:id', (request, response) =>{
+    window.alert('O produto foi deletado com sucesso!')
+    produtos.findOneAndDelete({_id: request.params.id}).then(() =>{
+        response.redirect("/")
+    }).catch((err) =>{
+        response.redirect("/")
+    })
+})
+ 
 // LogOut
 app.delete('/logout', (req, res) =>{
     req.logOut()
