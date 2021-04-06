@@ -21,7 +21,13 @@ router.get('/', async (req, res) => {
 
 //Procurar por um produto
 router.get('/:productId', async (req, res) => {
-    res.send({ user: req.userId })
+    try {
+        const product = await Product.findById(req.params.productId)
+
+        return res.send({ product })
+    } catch (err) {
+        return res.status(400).send({ error: 'Error loading project' })
+    }
 })
 
 //Cadastrar produto
@@ -41,8 +47,15 @@ router.put('/:productId', async (req, res) => {
     res.send({ user: req.userId })
 })
 
+//Deletar produto
 router.delete('/:productId', async (req, res) => {
-    res.send({ user: req.userId })
+    try {
+        await Product.findByIdAndRemove(req.params.productId)
+
+        return res.send()
+    } catch (err) {
+        return res.status(400).send({ error: 'Error deleting project' })
+    }
 })
 
 module.exports = app => app.use('/product', router)
