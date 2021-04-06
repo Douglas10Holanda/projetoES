@@ -44,7 +44,22 @@ router.post('/cadastrar', async (req, res) => {
 
 //Editar produto
 router.put('/:productId', async (req, res) => {
-    res.send({ user: req.userId })
+    const {marca, quantidade, valor, desconto} = req.body
+
+    try {
+        const product = await Product.findByIdAndUpdate(req.params.productId, {
+            marca,
+	        quantidade,
+	        valor,
+	        desconto
+        }, {new: true} )
+
+
+        return res.send({ product })
+    } catch (err) {
+        console.log(err)
+        return res.status(400).send({ error: 'Error editing project' })
+    }
 })
 
 //Deletar produto
