@@ -48,10 +48,7 @@ router.post('/authenticate', async (req, res) => {
 
     user.password = undefined
     
-    res.send({ 
-        user, 
-        token: generateToken({ id: user.id })
-    })
+    res.render('../views/home')
 })
 
 module.exports =  app => app.use('/auth', router)
